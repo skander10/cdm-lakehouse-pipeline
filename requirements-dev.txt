@@ -1,0 +1,5 @@
+# Development dependencies: everything needed to TEST and LINT the pipeline.
+# Includes the runtime dependencies.
+-r requirements.txt
+pytest>=8,<10
+ruff>=0.6

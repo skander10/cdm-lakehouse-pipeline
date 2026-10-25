@@ -1,0 +1,2 @@
+# Runtime dependencies: everything needed to RUN the pipeline.
+pandas>=2.2,<4

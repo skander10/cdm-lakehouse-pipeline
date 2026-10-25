@@ -1,0 +1,7 @@
+cust_id,full_name,email_addr,signup_date,user_status
+CST-001,Jane Doe,jane.doe@example.com,2023-01-15T10:30:00Z,active
+CST-002,John Smith,JOHN.SMITH@DOMAIN.COM,2023-02-20 14:15:00,active
+CST-003,Alice Vance,invalid-email-format,2023-03-05,inactive
+CST-004,Bob Ross,bob.ross@paint.org,2023-04-12T08:00:00Z,ACTIVE
+CST-005,  Charlie Brown
+,charlie@peanuts.com,2023-05-01T12:00:00Z,inactive
