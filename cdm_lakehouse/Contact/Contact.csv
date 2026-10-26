@@ -1,0 +1,5 @@
+contactid,firstname,lastname,emailaddress1,createdon,statecode
+CST-001,Jane,Doe,jane.doe@example.com,2023-01-15T10:30:00Z,0
+CST-002,John,Smith,john.smith@domain.com,2023-02-20T14:15:00Z,0
+CST-003,Alice,Vance,,2023-03-05T00:00:00Z,1
+CST-004,Bob,Ross,bob.ross@paint.org,2023-04-12T08:00:00Z,0

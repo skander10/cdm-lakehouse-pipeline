@@ -1,0 +1,4 @@
+stage,entity,record_id,reason,raw_values
+extract,Contact,,line 6: wrong number of fields,"CST-005,  Charlie Brown"
+extract,Contact,,line 7: wrong number of fields,",charlie@peanuts.com,2023-05-01T12:00:00Z,inactive"
+transform,SalesOrder,ORD-1005,orphan: customer CST-999 does not exist,"ORD-1005,CST-999,99.00,2023-06-06T10:00:00Z"
