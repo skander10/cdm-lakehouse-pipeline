@@ -16,9 +16,10 @@ from src.transform import transform
 logger = logging.getLogger(__name__)
 
 
-# Run the whole pipeline once.
-def main() -> None:
-    config = PipelineConfig()
+# Run the whole pipeline once. Without a config, the normal settings are used;
+# a test can pass its own config to write into an empty test folder.
+def main(config: PipelineConfig | None = None) -> None:
+    config = config or PipelineConfig()
 
     # Part 1: start logging (console + logs/pipeline.log), before any other step
     log_file = setup_logging(config.logs_dir)
