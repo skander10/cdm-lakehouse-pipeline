@@ -54,9 +54,8 @@ class TransformResult:
     quarantined: list[QuarantinedRecord]
     issues: list[DataIssue]
 
-    # ---------------------------------------------------------------------------
 
-
+# ---------------------------------------------------------------------------
 # Part 2: small helpers (record a problem + log it, IDs only)
 # ---------------------------------------------------------------------------
 
