@@ -41,7 +41,6 @@ def write_csv(table: pd.DataFrame, path: Path, config: PipelineConfig) -> None:
     temp_path.replace(path)  # one step: readers see the old file or the new one, never half
 
 
-
 # ---------------------------------------------------------------------------
 # Part 2: the CDM tables (assignment Step 2)
 # ---------------------------------------------------------------------------
@@ -61,7 +60,6 @@ def write_cdm_tables(
 ) -> None:
     write_entity(contacts, CONTACT, config)
     write_entity(sales_orders, SALES_ORDER, config)
-
 
 
 # ---------------------------------------------------------------------------

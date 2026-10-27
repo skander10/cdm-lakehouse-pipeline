@@ -20,14 +20,12 @@ def test_complete_customer_rows_are_read_unchanged() -> None:
     ]
 
 
-
 # Test 2: a row split across two lines is rejected
 def test_row_split_across_two_lines_is_rejected() -> None:
     result = extract_customers(PipelineConfig())
 
     assert [row.line_number for row in result.rejected] == [6, 7]
     assert result.rejected[0].values == ["CST-005", "  Charlie Brown"]
-
 
 
 # Test 3: missing values are kept, the transformation decides about them
@@ -46,7 +44,6 @@ def test_missing_values_are_kept_for_the_transformation(tmp_path: Path) -> None:
     assert result.rejected == []
 
 
-
 # Test 4: orders are read unchanged, every value as text
 def test_orders_are_read_unchanged_as_text() -> None:
     result = extract_orders(PipelineConfig())
@@ -59,7 +56,6 @@ def test_orders_are_read_unchanged_as_text() -> None:
         ["ORD-1004", "CST-004", "15.75", "2023-06-05T18:00:00Z"],
         ["ORD-1005", "CST-999", "99.00", "2023-06-06T10:00:00Z"],
     ]
-
 
 
 # Test 5: a file with the wrong header is stopped immediately

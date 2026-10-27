@@ -22,7 +22,6 @@ def transform_real_data() -> TransformResult:
     return transform(customers, orders, config.default_timezone)
 
 
-
 # --- Part 1: the real data of the assignment ---
 
 
@@ -36,7 +35,6 @@ def test_contacts_from_real_data() -> None:
         ["CST-003", "Alice", "Vance", None, "2023-03-05T00:00:00Z", 1],
         ["CST-004", "Bob", "Ross", "bob.ross@paint.org", "2023-04-12T08:00:00Z", 0],
     ]
-
 
 
 # The SalesOrder table has 4 orders; the orphan ORD-1005 (customer CST-999) is quarantined.
@@ -54,7 +52,6 @@ def test_sales_orders_from_real_data() -> None:
     ]
 
 
-
 # Every problem in the real data is reported: invalid e-mail and the two assumed time zones.
 def test_issues_from_real_data() -> None:
     result = transform_real_data()
@@ -64,7 +61,6 @@ def test_issues_from_real_data() -> None:
         ("CST-003", "emailaddress1", "invalid, set to null"),
         ("CST-003", "createdon", "no time zone given, UTC assumed"),
     ]
-
 
 
 # --- Part 2: rules that our real data does not contain ---
@@ -104,7 +100,6 @@ def test_optional_values_are_left_empty_with_warning() -> None:
         ("CST-007", "lastname", "only one name part, left empty"),
         ("CST-007", "statecode", "invalid, left empty"),
     ]
-
 
 
 # Required totalamount: invalid -> quarantine; negative -> kept with a warning.

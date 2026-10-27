@@ -54,8 +54,9 @@ class TransformResult:
     quarantined: list[QuarantinedRecord]
     issues: list[DataIssue]
 
-
     # ---------------------------------------------------------------------------
+
+
 # Part 2: small helpers (record a problem + log it, IDs only)
 # ---------------------------------------------------------------------------
 
@@ -165,6 +166,7 @@ def transform_contacts(
 
     logger.info("Contact: %d records transformed", len(rows))
     return pd.DataFrame(rows, columns=CONTACT.column_names, dtype=object)
+
 
 # ---------------------------------------------------------------------------
 # Part 4: SalesOrder
