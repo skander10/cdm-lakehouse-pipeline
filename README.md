@@ -37,7 +37,7 @@ git clone https://github.com/skander10/cdm-lakehouse-pipeline.git
 cd cdm-lakehouse-pipeline
 
 # 2. Create and activate a virtual environment
-python -m venv .venv
+python3 -m venv .venv            # Windows: py -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 
 # 3. Install the dependencies (pandas, plus pytest and ruff for development)
