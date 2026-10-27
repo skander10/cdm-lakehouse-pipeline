@@ -11,6 +11,7 @@ from src.extract import extract_customers, extract_orders
 from src.load import quarantine_table, write_cdm_tables, write_quarantine
 from src.logging_config import setup_logging
 from src.manifest import build_manifest, check_manifest, write_manifest
+from src.quality import build_report, summary_rows, write_report
 from src.transform import transform
 
 logger = logging.getLogger(__name__)
@@ -33,14 +34,19 @@ def main(config: PipelineConfig | None = None) -> None:
     # Part 3: load (write the CDM tables and one quarantine file for extract + transform)
     write_cdm_tables(result.contacts, result.sales_orders, config)
     extract_rejected = {"Contact": customers.rejected, "SalesOrder": orders.rejected}
-    write_quarantine(quarantine_table(extract_rejected, result.quarantined), config)
+    quarantine = quarantine_table(extract_rejected, result.quarantined)
+    write_quarantine(quarantine, config)
 
     # Part 4: manifest (build model.json, check it against the CSV files, then write it)
     manifest = build_manifest(config)
     check_manifest(manifest, config)
     write_manifest(manifest, config)
 
-    # Part 5: summary of the run (counts only, no personal data)
+    # Part 5: quality report for people (reports/data_quality_report.md, IDs only)
+    report = build_report(summary_rows(customers, orders, result), quarantine, result.issues)
+    write_report(report, config)
+
+    # Part 6: summary of the run (counts only, no personal data)
     quarantined = len(customers.rejected) + len(orders.rejected) + len(result.quarantined)
     logger.info(
         "Pipeline finished: %d contacts and %d sales orders written, %d quarantined, %d issues",
